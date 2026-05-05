@@ -55,3 +55,66 @@ variable "db_subnet_cidrs" {
   type        = list(string)
   default     = ["10.0.21.0/24", "10.0.22.0/24"]
 }
+
+# ----- compute -----
+
+variable "instance_type" {
+  description = "EC2 instance type"
+  type        = string
+  default     = "t3.micro"
+}
+
+variable "asg_min_size" {
+  description = "Minimum number of EC2 instances in the ASG"
+  type        = number
+  default     = 2
+}
+
+variable "asg_max_size" {
+  description = "Maximum number of EC2 instances in the ASG"
+  type        = number
+  default     = 4
+}
+
+variable "asg_desired_capacity" {
+  description = "Desired number of EC2 instances in the ASG"
+  type        = number
+  default     = 2
+}
+
+# ----- Database -----
+
+variable "db_name" {
+  description = "Name of the RDS database"
+  type        = string
+  default     = "appdb"
+}
+
+variable "db_username" {
+  description = "Master username for RDS"
+  type        = string
+  sensitive   = true
+}
+
+variable "db_password" {
+  description = "Master password for RDS (min 8 chars)"
+  type        = string
+  sensitive   = true
+
+  validation {
+    condition     = length(var.db_password) >= 8
+    error_message = "db_password must be at least 8 characters."
+  }
+}
+
+variable "db_instance_class" {
+  description = "RDS instance class"
+  type        = string
+  default     = "db.t3.micro"
+}
+
+variable "db_engine_version" {
+  description = "PostgreSQL engine version"
+  type        = string
+  default     = "12.22"
+}
