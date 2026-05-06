@@ -54,7 +54,6 @@ variable "db_subnet_cidrs" {
   description = "CIDRs for DB subnets (one per AZ)"
   type        = list(string)
   default     = ["10.0.21.0/24", "10.0.22.0/24"]
-<<<<<<< HEAD
 }
 
 # ----- compute -----
@@ -118,6 +117,4 @@ variable "db_engine_version" {
   description = "PostgreSQL engine version"
   type        = string
   default     = "12.22"
-=======
->>>>>>> main
 }

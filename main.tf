@@ -1,16 +1,10 @@
-<<<<<<< HEAD
 # Root module — wires all child modules together
 
-=======
->>>>>>> main
 locals {
   name_prefix = "${var.project_name}-${var.environment}"
 }
 
-<<<<<<< HEAD
 # 1. Networking
-=======
->>>>>>> main
 module "networking" {
   source = "./modules/networking"
 
@@ -22,7 +16,6 @@ module "networking" {
   db_subnet_cidrs      = var.db_subnet_cidrs
 }
 
-<<<<<<< HEAD
 # 2. IAM 
 module "iam" {
   source = "./modules/iam"
@@ -69,5 +62,3 @@ module "compute" {
   s3_bucket_name       = module.storage.bucket_name
   db_endpoint          = module.database.db_endpoint
 }
-=======
->>>>>>> main
