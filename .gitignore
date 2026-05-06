@@ -1,18 +1,21 @@
-.terraform.lock.hcl
-.terraform/providers/
-terraform.tfvars
-terraform.tfvars.json
+# Terraform state files — NEVER commit state
 *.tfstate
-*.tfstate.backup
-.terraform.tfstate
-.terraform.tfstate.backup
-.terraform/terraform.tfstate
-.terraform/terraform.tfstate.backup
-*.log
-*.tfvars
-*.tfvars.json       
+*.tfstate.*
 .terraform/
-.terraform.lock.hcl
-.terraform/providers/
-.terraform/modules/
-.terraform/terraform.tfstate
+tfplan
+
+# Variable files that may contain secrets
+terraform.tfvars
+*.auto.tfvars
+
+# OS junk
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Crash logs
+crash.log
+crash.*.log

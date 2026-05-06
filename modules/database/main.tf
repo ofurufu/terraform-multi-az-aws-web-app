@@ -59,9 +59,9 @@ resource "aws_db_instance" "main" {
 
   # Storage
   allocated_storage     = 20
-  max_allocated_storage = 100      # Auto-scaling storage up to 100 GB
+  max_allocated_storage = 100 # Auto-scaling storage up to 100 GB
   storage_type          = "gp3"
-  storage_encrypted     = true     # Encryption at rest
+  storage_encrypted     = true # Encryption at rest
 
   # Credentials
   db_name  = var.db_name
@@ -71,24 +71,24 @@ resource "aws_db_instance" "main" {
   # Network
   db_subnet_group_name   = aws_db_subnet_group.main.name
   vpc_security_group_ids = [aws_security_group.db.id]
-  publicly_accessible    = false   # NEVER expose RDS to the internet
+  publicly_accessible    = false # NEVER expose RDS to the internet
 
   # High Availability
   multi_az = true
 
   # Backup
-  backup_retention_period   = 7          # 7-day point-in-time recovery
-  backup_window             = "03:00-04:00"
-  maintenance_window        = "sun:04:00-sun:05:00"
-  delete_automated_backups  = false
+  backup_retention_period  = 7 # 7-day point-in-time recovery
+  backup_window            = "03:00-04:00"
+  maintenance_window       = "sun:04:00-sun:05:00"
+  delete_automated_backups = false
 
   # Production safety
-  deletion_protection       = false      # Set to true in prod!
-  skip_final_snapshot       = true       # Set to false in prod!
+  deletion_protection = false # Set to true in prod!
+  skip_final_snapshot = true  # Set to false in prod!
   # final_snapshot_identifier = "${var.name_prefix}-db-final-snapshot"
 
   # Performance Insights
-  performance_insights_enabled = true
+  performance_insights_enabled          = true
   performance_insights_retention_period = 7
 
   tags = { Name = "${var.name_prefix}-db" }

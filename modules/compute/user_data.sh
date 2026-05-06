@@ -22,7 +22,7 @@ cat > /usr/share/nginx/html/index.html <<EOF
 <html>
 <head><title>Terraform Multi-AZ Web App</title></head>
 <body>
-  <h1>🚀 Deployed with Terraform</h1>
+  <h1>Hi, I'm Ofurufu. Deployed with Terraform</h1>
   <p>Instance ID: $(curl -s http://169.254.169.254/latest/meta-data/instance-id)</p>
   <p>AZ: $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)</p>
   <p>S3 Bucket: ${s3_bucket_name}</p>

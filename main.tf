@@ -34,7 +34,7 @@ module "storage" {
 
 # 4. Database 
 module "database" {
-  source = "./modules/database"
+  source            = "./modules/database"
   name_prefix       = local.name_prefix
   db_subnet_ids     = module.networking.db_subnet_ids
   vpc_id            = module.networking.vpc_id

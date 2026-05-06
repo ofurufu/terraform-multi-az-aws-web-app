@@ -85,7 +85,7 @@ resource "aws_lb" "main" {
   #   enabled = true
   # }
 
-  enable_deletion_protection = false  # Set to true in prod!
+  enable_deletion_protection = false # Set to true in prod!
 
   tags = { Name = "${var.name_prefix}-alb" }
 }
@@ -135,7 +135,7 @@ resource "aws_launch_template" "app" {
   }
 
   network_interfaces {
-    associate_public_ip_address = false    # EC2s are in private subnets
+    associate_public_ip_address = false # EC2s are in private subnets
     security_groups             = [aws_security_group.app.id]
     delete_on_termination       = true
   }
@@ -164,13 +164,13 @@ resource "aws_launch_template" "app" {
 
   metadata_options {
     http_endpoint               = "enabled"
-    http_tokens                 = "required"   # IMDSv2 only — security best practice
+    http_tokens                 = "required" # IMDSv2 only — security best practice
     http_put_response_hop_limit = 1
   }
 
   tag_specifications {
     resource_type = "instance"
-    tags = { Name = "${var.name_prefix}-ec2" }
+    tags          = { Name = "${var.name_prefix}-ec2" }
   }
 
   lifecycle {
@@ -180,11 +180,11 @@ resource "aws_launch_template" "app" {
 
 # Auto Scaling Group
 resource "aws_autoscaling_group" "app" {
-  name                = "${var.name_prefix}-asg"
-  vpc_zone_identifier = var.private_subnet_ids
-  target_group_arns   = [aws_lb_target_group.app.arn]
-  health_check_type   = "ELB"          # ALB health checks (not just EC2 status)
-  health_check_grace_period = 120      # Give EC2 time to bootstrap
+  name                      = "${var.name_prefix}-asg"
+  vpc_zone_identifier       = var.private_subnet_ids
+  target_group_arns         = [aws_lb_target_group.app.arn]
+  health_check_type         = "ELB" # ALB health checks (not just EC2 status)
+  health_check_grace_period = 120   # Give EC2 time to bootstrap
 
   min_size         = var.asg_min_size
   max_size         = var.asg_max_size
