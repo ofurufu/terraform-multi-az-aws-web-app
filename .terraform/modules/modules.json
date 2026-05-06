@@ -1,5 +1,0 @@
-<<<<<<< HEAD
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"compute","Source":"./modules/compute","Dir":"modules/compute"},{"Key":"database","Source":"./modules/database","Dir":"modules/database"},{"Key":"iam","Source":"./modules/iam","Dir":"modules/iam"},{"Key":"networking","Source":"./modules/networking","Dir":"modules/networking"},{"Key":"storage","Source":"./modules/storage","Dir":"modules/storage"}]}
-=======
-{"Modules":[{"Key":"","Source":"","Dir":"."},{"Key":"networking","Source":"./modules/networking","Dir":"modules/networking"}]}
->>>>>>> main

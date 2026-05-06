@@ -2,13 +2,8 @@
 *.tfstate
 *.tfstate.*
 .terraform/
+.terraform.lock.hcl  # Commit this one — it locks provider versions
 tfplan
-
-# Terraform local files
-.terraform/
-.terraform.lock.hcl
-terraform.tfstate
-terraform.tfstate.*
 
 # Variable files that may contain secrets
 terraform.tfvars
