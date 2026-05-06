@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Terraform state files — NEVER commit state
 *.tfstate
 *.tfstate.*
@@ -19,3 +20,23 @@ Thumbs.db
 # Crash logs
 crash.log
 crash.*.log
+=======
+.terraform.lock.hcl
+.terraform/providers/
+terraform.tfvars
+terraform.tfvars.json
+*.tfstate
+*.tfstate.backup
+.terraform.tfstate
+.terraform.tfstate.backup
+.terraform/terraform.tfstate
+.terraform/terraform.tfstate.backup
+*.log
+*.tfvars
+*.tfvars.json       
+.terraform/
+.terraform.lock.hcl
+.terraform/providers/
+.terraform/modules/
+.terraform/terraform.tfstate
+>>>>>>> main
